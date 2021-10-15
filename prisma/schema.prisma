@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model amd {
+  nro_order             String        @id @db.VarChar(10)
+  prov_serv_id          Int?
+  date_time             DateTime?     @db.Timestamp(6)
+  service_type          String?       @db.VarChar(30)
+  patient_name          String?       @db.VarChar(50)
+  patient_document      String?       @db.VarChar(15)
+  patient_phone         BigInt?
+  patient_address       String?       @db.VarChar(150)
+  diagnostic_impression String?       @db.VarChar(200)
+  status                String?       @db.VarChar(11)
+  prov_serv             prov_serv?    @relation(fields: [prov_serv_id], references: [prov_serv_id], onDelete: NoAction, onUpdate: NoAction)
+  coordinates           coordinates[]
+}
+
+model coordinates {
+  trace_id  Int       @default(autoincrement())
+  nro_order String    @db.VarChar(10)
+  latitude  Float?
+  longitude Float?
+  date_time DateTime? @db.Timestamp(6)
+  length    Int?
+  duration  Int?
+  amd       amd       @relation(fields: [nro_order], references: [nro_order], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([trace_id, nro_order])
+}
+
+model prov_serv {
+  prov_serv_id Int       @id @default(autoincrement())
+  provider_id  Int?
+  service_id   Int?
+  provider     provider? @relation(fields: [provider_id], references: [provider_id], onDelete: NoAction, onUpdate: NoAction)
+  service      service?  @relation(fields: [service_id], references: [service_id], onDelete: NoAction, onUpdate: NoAction)
+  amd          amd[]
+}
+
+model provider {
+  provider_id   Int         @id @default(autoincrement())
+  provider_name String?     @db.VarChar(20)
+  prov_serv     prov_serv[]
+  unit          unit[]
+}
+
+model service {
+  service_id   Int         @id @default(autoincrement())
+  service_name String?     @db.VarChar(20)
+  prov_serv    prov_serv[]
+}
+
+model unit {
+  unit_id     Int       @id @default(autoincrement())
+  provider_id Int?
+  unit_name   String?   @db.VarChar(25)
+  provider    provider? @relation(fields: [provider_id], references: [provider_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model users {
+  user_id     String   @db.VarChar(255)
+  provider_id Int?
+  username    String?  @db.VarChar(25)
+  password    String?  @db.VarChar(25)
+  name        String?  @db.VarChar(50)
+  phone       BigInt?
+  createdat   DateTime @default(now()) @db.Timestamp(6)
+  updatedat   DateTime @default(now()) @db.Timestamp(6)
+
+  @@ignore
+}
