@@ -34,8 +34,11 @@ DATABASE_URL="postgresql://postgres:admin@localhost:5432/ubicame?schema=public"
 
 _Cada vez que agreguemos o modifiquemos alguna tabla en nuestra base de datos, debemos ejecutar nuevamente los siguientes comandos para actualizar nuestro modelo de datos de prisma asi como nuestro Prisma Client_
 ```bash
-$ npx prisma instrospect
-$ npx prisma generate 
+npx prisma instrospect
+```
+
+```bash
+npx prisma generate 
 ```
 ### Para compilar el proyecto, debe ejecutar los siguientes comandos ✔
 
