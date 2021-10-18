@@ -1,4 +1,4 @@
-# API Proyecto Ubicame
+# API Proyecto Ubicame 📌
 
 API que comunica en tiempo real para permita determinar la ubicación actual, el trayecto y el destino de un paramédico al realizar un servicio de asistencia médica domiciliaria con el objetivo de monitorear estos datos en el módulo administrativo.
 
@@ -19,9 +19,10 @@ _Si la BD esta ya esta creada en Postgress, ejecutar el siguiente comando_
 npx prisma db pull
 ```
 
-### Configurancion
+### Configurancion ⚙
 
-_Para conectar la api con prisma, debe configurar lo siguiente en las variables de entorno, ni no tiene el archivo .env, agregarlo_
+_Para conectar la api con prisma, debe agregar en las variables de entorno la siguiente linea (si no tiene el archivo .env, agregarlo)_
+
 DATABASE_URL="postgresql://{usuario}:{password}@localhost:{puerto}/{BD}?schema=public"
 
 _Por ejemplo_
