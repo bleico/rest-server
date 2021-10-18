@@ -16,6 +16,7 @@ exports.getUsuarios = void 0;
 const connection_1 = __importDefault(require("../database/connection"));
 const getUsuarios = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const user = yield connection_1.default;
+    console.log(user);
     return res.json({ msg: user });
 });
 exports.getUsuarios = getUsuarios;

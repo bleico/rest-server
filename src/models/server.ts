@@ -1,6 +1,6 @@
 import express, { Application } from "express"
 import cors from "cors"
-import connection from "../database/connection";
+import morgan from "morgan";
 
 import userRoutes from "../routes/usuario.routes";
 
@@ -22,10 +22,10 @@ class Server {
         this.middlewares();
         this.routes();
     }
-    async dbConnection() {
-        await connection
-    }
+
     middlewares() {
+
+        this.app.use(morgan("dev"));
         // Cors
         this.app.use(cors({
 

@@ -15,8 +15,7 @@ exports.default = (function connection() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const data = yield prisma.amd.findMany();
-            console.log(data);
-            data;
+            return data;
         }
         catch (e) {
         }

@@ -49,6 +49,7 @@ model provider {
   provider_name String?     @db.VarChar(20)
   prov_serv     prov_serv[]
   unit          unit[]
+  users         users[]
 }
 
 model service {
@@ -64,16 +65,12 @@ model unit {
   provider    provider? @relation(fields: [provider_id], references: [provider_id], onDelete: NoAction, onUpdate: NoAction)
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model users {
-  user_id     String   @db.VarChar(255)
+  users_id    Int       @id @default(autoincrement())
   provider_id Int?
-  username    String?  @db.VarChar(25)
-  password    String?  @db.VarChar(25)
-  name        String?  @db.VarChar(50)
+  username    String?   @db.VarChar(25)
+  password    String?   @db.VarChar(25)
+  name        String?   @db.VarChar(50)
   phone       BigInt?
-  createdat   DateTime @default(now()) @db.Timestamp(6)
-  updatedat   DateTime @default(now()) @db.Timestamp(6)
-
-  @@ignore
+  provider    provider? @relation(fields: [provider_id], references: [provider_id], onDelete: NoAction, onUpdate: NoAction)
 }
