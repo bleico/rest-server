@@ -1,10 +1,10 @@
 # API Proyecto Ubicame 📌
 
-API que comunica en tiempo real para permita determinar la ubicación actual, el trayecto y el destino de un paramédico al realizar un servicio de asistencia médica domiciliaria con el objetivo de monitorear estos datos en el módulo administrativo.
+API que comunica en tiempo real para permita determinar la ubicación actual, el trayecto y el destino de un paramédico al realizar un servicio de asistencia médica domiciliaria con el objetivo de monitorear estos datos en el módulo administrativo(Ambulancia, Motos, Carros...etc).
 
 ## Comenzando 🚀
 
-_API REST construido en Nodejs - Express - Typescript - Socket.IO - Postgress - Prisma_
+_Construido en Nodejs - Express - Typescript - Socket.IO - Postgress - Prisma_
 
 ### Instalación 🔧
 
