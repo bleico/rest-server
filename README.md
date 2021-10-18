@@ -35,5 +35,14 @@ _Cada vez que agreguemos o modifiquemos alguna tabla en nuestra base de datos, d
 $ npx prisma instrospect
 $ npx prisma generate 
 ```
+### Para compilar el proyecto, debe ejecutar los siguientes comandos
 
+_Compilar archivo typescript_
+```bash
+tsc -w
+```
 
+_Compilar y levantar servidor_
+```bash
+npm run dev
+```
