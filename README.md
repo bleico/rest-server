@@ -4,19 +4,25 @@ API que comunica en tiempo real para permita determinar la ubicación actual, el
 
 ## Comenzando 🚀
 
-_Construido en Nodejs - Express - Typescript - Socket.IO - Postgress - Prisma_
+_Construido en Nodejs - Express - Typescript - Socket.IO - Postgress - Prisma._
 
 ### Instalación 🔧
 
-_Para descargar las librerias necesarias ejecutar_
+_Para descargar las librerias necesarias ejecutar._
 ```bash
 npm install
 ```
 
-_Si la BD esta ya esta creada en Postgress, ejecutar el siguiente comando_
+Si la BD esta ya esta creada en Postgress, ejecutar el siguiente comando.
 
 ```bash
 npx prisma db pull
+```
+
+Cree migraciones desde su esquema Prisma, aplíquelas a la base de datos y genere artefactos.
+
+```bash
+ prisma migrate dev
 ```
 
 ### Configurancion ⚙
