@@ -21,7 +21,7 @@ npx prisma db pull
 
 ### Configurancion ⚙
 
-_Para conectar la api con prisma, debe agregar en las variables de entorno la siguiente linea (si no tiene el archivo .env, agregarlo)_
+Para conectar la api con prisma, debe agregar en las variables de entorno la siguiente linea (si no tiene el archivo .env, agregarlo)
 
 DATABASE_URL="postgresql://{usuario}:{password}@localhost:{puerto}/{BD}?schema=public"
 
@@ -37,12 +37,12 @@ $ npx prisma generate
 ```
 ### Para compilar el proyecto, debe ejecutar los siguientes comandos ✔
 
-_Compilar archivo typescript_
+Compilar archivo typescript
 ```bash
 tsc -w
 ```
 
-_Compilar y levantar servidor_
+Compilar y levantar servidor
 ```bash
 npm run dev
 ```
