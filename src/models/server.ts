@@ -28,7 +28,7 @@ class Server {
         this.app.use(morgan("dev"));
         // Cors
         this.app.use(cors({
-
+            methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
         }));
         // Lectura del body
         this.app.use(express.json());

@@ -22,7 +22,9 @@ class Server {
     middlewares() {
         this.app.use((0, morgan_1.default)("dev"));
         // Cors
-        this.app.use((0, cors_1.default)({}));
+        this.app.use((0, cors_1.default)({
+            methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+        }));
         // Lectura del body
         this.app.use(express_1.default.json());
         // Carpeta publica
