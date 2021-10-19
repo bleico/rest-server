@@ -14,13 +14,13 @@ export const auth = async (req: Request, res: Response) => {
         const userExists = await prisma.users.findMany({
             where: {
                 username: username,
-                password
+                password: password
             }
         });
 
-        if (!userExists) {
+        if (!userExists.length) {
             return res.status(401).json({
-                msg: "❌EL usuario no existe"
+                msg: "Usuario / Password no son correctos"
             })
         }
         return res.status(200).json({ data: userExists });

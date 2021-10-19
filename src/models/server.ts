@@ -2,7 +2,7 @@ import express, { Application } from "express"
 import cors from "cors"
 import morgan from "morgan";
 
-import userRoutes from "../routes/usuario.routes";
+import userRoutes from "../routes/auth.routes";
 
 
 class Server {
@@ -10,7 +10,7 @@ class Server {
     private app: Application;
     private port: string;
     private apiPaths = {
-        login: '/api/login'
+        login: '/api'
     }
 
     constructor() {
